@@ -14,9 +14,9 @@ local Options = {}
 Options.Addon = {
   Enabled = true,
   EnabledInBattlegrounds = true,
-  EnabledInArena = false,
-  DisabledWhenWarmodeOff = false,
-  DisabledWhenWarmodeOffSanctuaries = true,
+  --EnabledInArena = false,
+  --DisabledWhenWarmodeOff = false,
+  --DisabledWhenWarmodeOffSanctuaries = true,
   DisabledInSanctuary = false,
   Debug = false
 }

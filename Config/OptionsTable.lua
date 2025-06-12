@@ -115,22 +115,6 @@ local generalGroup = {
           NS.GetPVPZone()
       end
     },
-    EnableArenas = {
-      name = " |TInterface/Addons/weizPVP/Media/Icons/arena.tga:16|t  Enable in Arenas",
-      desc = "Enable weizPVP in Arenas\n" ..
-          NS.ColorsLUT["info"]:WrapTextInColorCode("(Not designed for arenas, but can be useable)"),
-      type = "toggle",
-      order = 12,
-      width = "full",
-      get = function()
-          return NS.Options.Addon.EnabledInArena
-      end,
-      set = function(_, value)
-          --: Double check that we were already disabled. If so, initialize addon again.
-          NS.Options.Addon.EnabledInArena = value
-          NS.GetPVPZone()
-      end
-    },
     spacer2 = {
       name = "",
       type = "description",
@@ -157,46 +141,6 @@ local generalGroup = {
       order = 35,
       width = "full"
     },
-    DisabledWhenWarmodeOff = {
-      name = " |TInterface/Addons/weizPVP/Media/Icons/warmode.tga:16|t  Disable addon when War Mode is turned off",
-      desc = "Disables the addon's main functions when you have War Mode off",
-      type = "toggle",
-      order = 40,
-      width = "full",
-      get = function()
-          return NS.Options.Addon.DisabledWhenWarmodeOff
-      end,
-      set = function(_, value)
-          NS.Options.Addon.DisabledWhenWarmodeOff = value
-          NS.GetPVPZone()
-      end
-    },
-    WarModeSpecifics = {
-      name = "War Mode Specifics",
-      type = "group",
-      inline = true,
-      order = 50,
-      args = {
-        -- Disable in Sanctuaries
-        DisabledWhenWarmodeOffSanctuaries = {
-          name = " Remain disabled in Sanctuaries while WM of off",
-          desc = "Disables the addon's main functions when you have War Mode off in Sanctuaries as well as PVP World Zones",
-          type = "toggle",
-          order = 1,
-          width = "full",
-          get = function()
-              return NS.Options.Addon.DisabledWhenWarmodeOffSanctuaries
-          end,
-          set = function(_, value)
-              NS.Options.Addon.DisabledWhenWarmodeOffSanctuaries = value
-              NS.GetPVPZone()
-          end,
-          disabled = function()
-              return not NS.Options.Addon.DisabledWhenWarmodeOff
-          end
-        }
-      }
-    }
   }
 }
 
